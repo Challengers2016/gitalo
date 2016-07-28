@@ -1,0 +1,133 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img ng-src="{{ User.avatar_url}}" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4 ng-if="User.login">
+                            {{ User.login }}
+                        </h4>
+                        <small ng-if="User.location"><cite title="San Francisco, USA">{{ User.location}} <i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
+                        <p>
+                            <i ng-if="User.email" class="glyphicon glyphicon-envelope"></i>{{ User.email  }}
+                            <br />
+                            <i ng-if="User.blog" class="glyphicon glyphicon-globe"></i><a ng-if="User.blog" href="http://www.jquery2dotnet.com">{{ User.blog }}</a>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i> Joined on {{ User.created_at | date:"MM/dd/yyyy" }}
+                            <br>
+
+                                <i class="fa fa-github-square" aria-hidden="true" ng-if="User.bio"></i>
+                          {{ User.bio }}
+
+
+                        </p>
+                        <!-- Split button -->
+                      <hr>
+                        <h4><a ng-href="{{ User.url}}">Show Github</a></h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6" ng-if="User.followers">
+  <h3><a>{{User.followers }} Followers </a></h3>
+                            </div>
+
+                            <div class="col-md-6" ng-if="User.following">
+                                <h3> <a>{{ User.following }} Following</a></h3>
+                            </div>
+
+
+
+                        </div><!---end of row-->
+
+
+
+                        <hr>
+
+                        <div class="row">
+                            <h3>Organisations</h3>
+                            <div class="row">
+                                <div class="col-md-2" ng-repeat="org in User.organisations" ng-if="$index % 3 == 0">
+                                    <a><img ng-src="{{User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
+                                </div>
+
+                                <div class="col-md-2"  ng-if="User.organisations.length > ($index + 1)">
+                                  <a>  <img ng-src="{{User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div><!---end of col md6---------->
+
+
+
+
+
+
+        <div class="col-md-6">
+            <h3> {{User.public_repos}} Repositories</h3>
+            <hr>
+
+            <table class="table table-hover">
+
+                <tbody>
+                <tr ng-repeat="r in User.repos">
+                    <td>
+                        <div class="alert alert-success" role="alert">
+
+                        <h3><a ui-sref="reposDetails({'username': '{{User.login}}',repos: '{{r.name }}' })"> {{ r.name }}</a> </h3>
+
+                            <div class="pull-right">
+
+                                <span class="glyphicon glyphicon-star">{{ r.stargazers_count}}</span>
+
+                                <i class="fa fa-code-fork" aria-hidden="true"></i>{{ r.forks_count}}
+                            </div>
+
+                            <br>
+
+
+                            <a ng-if="r.language"> language   :
+                                {{ r.language }} <i class="fa fa-language" aria-hidden="true"></i>
+                            </a>
+                            <br>
+
+                            <a ng-if="r.description"> {{ r.description}}</a>
+
+
+                        </div>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div><!----end of row---->
+</div><!---end of container------->
