@@ -1,0 +1,275 @@
+<br>
+<br>
+<br>
+
+<div class="container animated fadeIn">
+
+
+
+
+<div class="row text-center">
+    <nav aria-label="Page navigation" class="text-center">
+        <ul class="pagination">
+            <li>
+                <a ng-click=" dd.decrement()" aria-label="Previous">
+                    Prev
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <li>
+                <a ng-click=" dd.click()" aria-label="Next">
+                    Next
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+    <div class="row text-center">
+        <loading></loading>
+    </div>
+
+
+    <div class="row">
+
+
+
+        <div class="col-md-6 ">
+
+
+
+            <table class="table table-condensed">
+
+                <tbody>
+
+
+                <tr ng-repeat="user in  dd.developers track by $index"  ng-if="$index % 2 == 0"  >
+
+                    <td>
+
+                            <div class="alert animated fadeIn">
+
+
+<div class="row">
+
+
+    <div class="col-md-6 text-center">
+        <h3 class="">
+            <a ui-sref="developerDetails({'username':  dd.developers[($index)].data.login })"> {{  dd.developers[($index)].data.login }}</a>
+        </h3>
+
+        <h1>
+            <a ui-sref="developerDetails({'username':  dd.developers[($index)].data.login  })">
+                <img  ng-src="{{  dd.developers[($index)].data.avatar_url}}" width="120px" class="img-rounded lazy">
+            </a>
+        </h1>
+
+    </div>
+
+    <!------------------->
+    <div class="col-md-6 panel-footer">
+        <p>
+ <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{  dd.developers[($index)].data.followers | number}} Followers
+                                    </span>
+            <br>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{  dd.developers[($index)].data.following | number}} Following
+                                    </span>
+            <br>
+        </p>
+
+        <!----------->
+        <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{  dd.developers[($index)].data.public_gists}} public gists
+                                    </span>
+            <br>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{  dd.developers[($index)].data.public_repos}} public repos
+                                    </span>
+            <br>
+        </p>
+
+
+
+
+
+
+        <button type="button" class="btn btn-warning">Follow</button>
+
+    </div><!--end of ocl md6-->
+
+
+</div>
+
+
+
+
+
+                            </div>
+
+                    </td>
+                </tr>
+
+
+                <!-------------------->
+
+
+                <!--------------------->
+                </tbody>
+            </table>
+        </div><!--end of ocl md6-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!------------------------------------------------------------------------------->
+
+
+        <div class="col-md-6">
+
+
+
+            <table class="table table-condensed">
+
+                <tbody>
+
+
+                <tr ng-repeat="user in  dd.developers track by $index   " ng-if=" dd.developers.length > ($index + 1) && $index % 2 == 0" >
+
+
+                    <td>
+
+                        <div class="alert animated fadeIn">
+
+
+                            <div class="row">
+
+
+                                <div class="col-md-6 text-center">
+                                    <h3 class="">
+                                        <a ui-sref="developerDetails({'username':  dd.developers[($index + 1)].data.login   })"> {{  dd.developers[($index + 1)].data.login }}</a>
+                                    </h3>
+
+                                    <h1>
+                                        <a ui-sref="developerDetails({'username':  dd.developers[($index + 1)].data.login  })">
+                                            <img  ng-src="{{ dd.developers[($index + 1)].data.avatar_url}}" width="120px" class="img-rounded lazy">
+                                        </a>
+                                    </h1>
+
+                                </div>
+
+                                <!------------------->
+                                <div class="col-md-6 panel-footer">
+                                    <p>
+ <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{ dd.developers[($index + 1)].data.followers | number}} Followers
+                                    </span>
+                                        <br>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{ dd.developers[($index + 1)].data.following | number}} Following
+                                    </span>
+                                        <br>
+                                    </p>
+
+                                    <!----------->
+                                    <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{ dd.developers[($index + 1)].data.public_gists}} public gists
+                                    </span>
+                                        <br>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{ dd.developers[($index + 1)].data.public_repos}} public repos
+                                    </span>
+                                        <br>
+                                    </p>
+
+
+
+
+
+
+                                    <button type="button" class="btn btn-warning">Follow</button>
+
+                                </div><!--end of ocl md6-->
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <!-------------------->
+
+
+                <!--------------------->
+                </tbody>
+            </table>
+        </div><!--end of ocl md6-->
+
+
+
+
+
+
+
+
+
+
+    </div><!--end of row--->
+
+
+
+    <div class="row">
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <li>
+                    <a ng-click=" dd.decrement()" aria-label="Previous">
+                        Prev
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a ng-click=" dd.click()" aria-label="Next">
+                        Next
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div><!----end of container------>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

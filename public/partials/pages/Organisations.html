@@ -1,0 +1,246 @@
+
+<br>
+<br>
+<br>
+<div class="container" ng-init="org.getOrgs()">
+
+    <div class="row text-center">
+        <loading></loading>
+    </div>
+
+
+
+    <div class="row">
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <li>
+                    <a ng-click="org.decrement()" aria-label="Previous">
+                        Prev
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a ng-click="org.click()" aria-label="Next">
+                        Next
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-condensed">
+
+                <tbody>
+
+
+                <tr ng-repeat="user in org.organisations track by $index" ng-if="$index % 2 == 0" >
+
+                    <td>
+
+                        <div class="alert">
+
+                            <h3 class="text-center">
+                                <a ui-sref="organisationDetails({'username': org.organisations[($index)].data.login   })"> {{ org.organisations[($index)].data.login }}</a>
+                            </h3>
+
+
+
+<div class="pull-left">
+                            <p>
+                                <a ui-sref="organisationDetails({'username': org.organisations[($index)].data.login   })">
+                                    <img ng-src="{{org.organisations[($index)].data.avatar_url}}" width="70px">
+                                </a>
+                            </p>
+
+    <p ng-if="user.data.description">
+        Description :
+    {{user.data.description}}
+    </p>
+</div><!---end of pull left----->
+
+                            <div class="pull-right">
+
+                                <p>
+                                    <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{user.data.followers}} Followers
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{user.data.following}} Following
+                                    </span>
+                                </p>
+
+                                <!----------->
+                                <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{user.data.public_gists}} public gists
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{user.data.public_repos}} public repos
+                                    </span>
+                                </p>
+
+                                <button type="button" class="btn btn-default">
+                                    Follow
+                                    <i class="fa fa-deaf" aria-hidden="true"></i>
+                                </button>
+                            </div><!----end of pull right-------->
+
+
+                            <!----------------->
+
+
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <!-------------------->
+
+
+                <!--------------------->
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!------------------------------------------------------------------------------->
+
+
+        <div class="col-md-6">
+            <table class="table table-condensed">
+
+                <tbody>
+
+
+                <tr ng-repeat="user in org.organisations track by $index" ng-if="org.organisations.length > ($index + 1) && $index % 2 == 0">
+
+                    <td>
+
+                        <div class="alert">
+
+
+
+
+                            <h3 class="text-center">
+                                <a ui-sref="organisationDetails({ username: org.organisations[($index + 1)].data.login })"> {{ org.organisations[($index + 1)].data.login }}</a>
+                            </h3>
+
+<!------------------------>
+                            <div class="pull-left">
+                                <a ui-sref="organisationDetails({'username': organisations[($index + 1)].data.login   })">
+                                <img ng-src="{{organisations[($index + 1)].data.avatar_url}}" width="70px">
+                            </a>
+                            <p ng-if="org.organisations[($index + 1)].data.description">Description :
+                                {{org.organisations[($index + 1)].data.description}}
+                            </p>
+                                </div><!--end of pull left--->
+
+
+                            <!----------------------------------------------->
+
+                            <div class="pull-right">
+
+                                <p>
+                                    <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{ org.organisations[($index + 1)].data.followers}} Followers
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{ org.organisations[($index + 1)].data.following}} Following
+                                    </span>
+                                </p>
+
+                                <!----------->
+                                <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{ org.organisations[($index + 1)].data.public_gists}} public gists
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{ org.organisations[($index + 1)].data.public_repos}} public repos
+                                    </span>
+                                </p>
+
+                                <button type="button" class="btn btn-default">
+                                    Follow
+                                    <i class="fa fa-deaf" aria-hidden="true"></i>
+                                </button>
+                            </div><!----end of pull right-------->
+
+
+                            <!-------------------------------------->
+
+
+
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <!-------------------->
+
+
+                <!--------------------->
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+    </div><!--end of row--->
+
+
+
+<!-------------------------->
+
+    <div class="row">
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <li>
+                    <a ng-click="org.decrement()" aria-label="Previous">
+                        Prev
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a ng-click="org.click()" aria-label="Next">
+                        Next
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div><!----end of container------>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

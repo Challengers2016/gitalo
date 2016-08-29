@@ -7,6 +7,17 @@
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-bower-src": "^0.1.0",
+    "gulp-bundle-assets": "^2.27.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-main-bower-files": "^1.5.3",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-useref": "^3.1.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
@@ -14,7 +25,8 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^3.2.2"
+    "protractor": "^3.2.2",
+    "pump": "^1.0.1"
   },
   "scripts": {
     "postinstall": "bower install",
@@ -32,8 +44,10 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "browser-notifications": "0.0.3",
+    "dev": "^0.1.3",
     "dom-notifications": "^1.0.0",
     "fb-messenger": "^1.1.0",
+    "gulp-uglify": "^2.0.0",
     "node-messenger-platform": "0.0.4",
     "programming-languages": "0.0.3"
   }

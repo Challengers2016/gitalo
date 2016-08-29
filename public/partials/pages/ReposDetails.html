@@ -1,0 +1,127 @@
+<br>
+<br>
+<br>
+<div class="container animated fadeIn">
+
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jumbotron" style="background-color: #FAFAFA">
+                <h4 class="text-center">Colloaborators {{ rd.Repo.contributors.length }}</h4>
+
+
+<div class="row">
+
+                <div class="col-md-2" ng-repeat="col in rd.Repo.contributors" ng-if="$index % 3 == 0">
+                    <a ui-sref="developerDetails({'username': '{{col.login}}'})" >
+                    <img class="img-responsive img-rounded" ng-src="{{col.avatar_url}}" width="70px" style="margin: auto;padding: 2px">
+                        </a>
+                </div><!----end of row----->
+
+
+                <div class="col-md-2" ng-repeat="col in rd.Repo.contributors" ng-if="rd.Repo.contributors.length > ($index + 1)">
+                    <a ui-sref="developerDetails({'username': '{{Repo.contributors.login}}'})" >
+                    <img class="img-responsive img-rounded" ng-src="{{col.avatar_url}}" width="70px" style="margin: auto">
+                        </a>
+                </div><!----end of row----->
+</div>
+
+
+                </div><!--end of jumbotron--->
+        </div><!--end of olc md6--->
+
+        <!----------->
+        <div class="col-md-6">
+
+
+
+
+
+
+            <div class="alert " role="alert">
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                <h3><a  ng-href="{{Repo.html_url}}">{{rd.Repo.name }}</a></h3>
+                        <br>
+                        <p><a ng-href="{{rd.Repo.html_url}}">View it in github</a> </p>
+                    </div><!--end of col md4--->
+
+
+                    <div class="col-md-6" >
+<a  ng-href="{{Repo.html_url}}">
+                       <img class="img-responsive img-circle" ng-src="{{rd.Repo.owner.avatar_url}}" width="70px">
+</a>
+
+                    </div>
+
+</div><!----end of row----->
+<div class="row">
+
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        Star
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        Watch
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <i class="fa fa-code-fork" aria-hidden="true"></i>
+                        Fork
+                    </button>
+                </div><!--end of pull right--->
+
+                </div><!--end of row--->
+
+
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                <h5 class="text-info">Description</h5>
+                    <p>{{ rd.Repo.description }}</p>
+                    </div><!--end of col md6--->
+
+                    <div class="col-md-3">
+                        <p class="text-justify">
+                            <i class="fa fa-star" aria-hidden="true"></i>{{ rd.Repo.stargazers_count | number }}
+                            <br>
+                            <i class="fa fa-eye" aria-hidden="true"></i>{{ rd.Repo.watchers_count | number }}
+                            <br>
+                            <i class="fa fa-code-fork" aria-hidden="true"></i>{{ rd.Repo.forks_count | number }}
+                            <br>
+                        </p>
+                    </div>
+                </div><!--end of row---->
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!--end of container--->

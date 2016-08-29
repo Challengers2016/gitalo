@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-public="GITALO" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-public="GITALO" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-public="GITALO" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="GITALO" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>GITALO</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="minify/vendor.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
+
+
+
+
+</head>
+<body style=" background-color: #FFFFFF;font-family: 'Ubuntu', serif;">
+
+
+<!-----------THE NAVBAR--------------->
+<div ng-include src="'partials/header.html'"></div>
+
+<!---------------------------------------->
+
+<div ui-view></div>
+
+
+
+
+
+
+
+
+<!-----------THE FOOTER--------------->
+<div ng-include src="'partials/footer.html'"></div>
+
+<!---------------------------------------->
+
+
+
+
+<script src="minify/vendor.js"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.6/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+
+
+<!------script jquery----->
+
+
+<script src="dist/all.js"></script>
+<script src="dist/Services.js"></script>
+<!---THE DIRECTIVES------------------->
+<script src="dist/directives.js"></script>
+<script src="js/jquery.script.js"></script>
+
+
+
+
+
+</body>
+</html>

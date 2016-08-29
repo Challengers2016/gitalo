@@ -1,0 +1,112 @@
+
+<br>
+<br>
+<br>
+<div class="container">
+
+
+    <div class="row text-center">
+        <loading></loading>
+    </div>
+
+
+
+
+    <!----------------->
+    <div class="row">
+
+
+
+
+<div class="col-md-6">
+
+        <div class="alert alert-default" ng-repeat="t in popularTools track by $index" style="border-radius: 15px; border: 2px solid #304FFE "  ng-if="$index % 2 == 0" >
+
+            <div class="row">
+
+
+                <div class="col-md-2">
+                    <img ng-src="{{t.img}}" class="img-rounded" width="70px">
+                </div><!----end of col md4------------->
+
+
+                <div class="col-md-10">
+            <div class="title">
+                <h4>{{t.Name}}</h4>
+            </div>
+            <div class="panel-body">
+                <h5><a ng-href="{{t.Website}}">{{ t.Website }}</a> </h5>
+                <hr>
+                <p>{{ t.Description}}</p>
+
+                <h5><a ng-href="{{t.github}}">Show Github</a></h5>
+            </div>
+
+                </div><!---end of md8----------------->
+
+            </div><!--end of row-------------->
+
+
+
+        </div><!---end of row------------------->
+
+</div><!-----end of col md6---------------->
+
+
+
+
+
+
+
+   <!------------------------------------------------------------------------------------------------------------------------------------------>
+
+        <div class="col-md-6">
+
+            <div class="alert alert-default" ng-repeat="t in popularTools track by $index" style="border-radius: 15px; border: 2px solid #304FFE "
+                 ng-if=" popularTools.length > ($index + 1) && $index % 2 == 0">
+
+                <div class="row">
+
+
+                    <div class="col-md-2">
+                        <img ng-src="{{t.img}}" class="img-rounded" width="70px">
+                    </div><!----end of col md4------------->
+
+
+                    <div class="col-md-10">
+                        <div class="title">
+                            <h4>{{t.Name}}</h4>
+                        </div>
+                        <div class="panel-body">
+                            <h5><a ng-href="{{t.Website}}">{{ t.Website }}</a> </h5>
+                            <hr>
+                            <p>{{ t.Description}}</p>
+
+                            <h5><a ng-href="{{t.github}}">Show Github</a></h5>
+                        </div>
+
+                    </div><!---end of md8----------------->
+
+                </div><!--end of row-------------->
+
+
+
+            </div><!---end of row------------------->
+
+        </div><!-----end of col md6---------------->
+
+
+
+
+    </div><!--end of row--------------->
+
+
+</div><!----end of container------>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,198 @@
+
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row" style="margin: 5px">
+
+
+
+        <!------------------------>
+        <div class="row text-center">
+            <form class="form-inline" role="form">
+                <div class="row">
+
+                    <input type="text" class="form-control input-lg" placeholder="Search" ng-model="searchText" >
+                    <button type="submit" class="btn btn-default">Search</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div><!----end of orw------------>
+    <hr>
+
+
+    <div class="container text-center">
+
+        <ul class="pagination">
+            <li>
+                <a ng-click="repos.decrement()" aria-label="Previous">
+                    Prev
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a ng-click="repos.click()" aria-label="Next">
+                    Next
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="row">
+
+
+        <div class="col-md-4">
+
+
+            <h3>Languages</h3>
+            <div class="list-group">
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('java')" class="list-group-item">Java</a>
+                </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('javascript')" class="list-group-item">javascript</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('php')" class="list-group-item">php</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('HTML')" class="list-group-item">Html</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('ruby')" class="list-group-item">Ruby</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('python')" class="list-group-item">Python</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('perl')" class="list-group-item">Perl</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('C')" class="list-group-item">C</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('c++')" class="list-group-item">C++</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('css')" class="list-group-item">Css3</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('Objective-C')" class="list-group-item">Objectife C</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('swift')" class="list-group-item">Swift</a>
+                    </div>
+                <div class="list-group-item styleList">
+                <a ng-click="repos.orderReposBylanguage('shell')" class="list-group-item">Unix shell</a>
+                    </div>
+
+            </div>
+
+        </div><!---end of col md6---->
+
+
+        <div class="col-md-8">
+
+<div class="row">
+
+    <div class="col-md6 text-center">
+    <h3>{{ repos.numberofRepos | number }} Repositories</h3>
+    </div><!---end of ocl md6--->
+
+    <div class="col-md6 dropdown">
+
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By {{ repos.myOrderBy}}
+          </button>
+
+        <div class="dropdown-menu">
+            <a ng-click="repos.orderBy('watchers')"  class="list-group-item">
+                Most Watched
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </a>
+            <a ng-click="repos.orderBy('forks')"  class="list-group-item">Most forked
+                <i class="fa fa-code-fork" aria-hidden="true"></i></a>
+        </div>
+
+
+
+    </div><!--end of ocl md6---->
+
+</div><!--end of row---->
+
+
+
+            <div class="row text-center">
+                <loading></loading>
+            </div>
+
+
+
+            <div class="alert alert-info repo animated bounceInLeft" ng-repeat="repo in repos.Repos | orderBy:repos.myOrderBy | filter:searchText"
+                    style="border: 2px solid #3F51B5;border-radius: 25px;color: #001714;background-color: #FFFFFF">
+
+<p>{{ repo.owner.login}}</p>
+
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <h3 style="color: #000066"><a style="color: #000066" ui-sref="reposDetails({username :repo.owner.login,repos :repo.name })">{{repo.name}}</a></h3>
+                    </div>
+
+                    <div class="col-md-3 ">
+
+                           <p>
+                               {{repo.language}}
+                               {{repo.stargazers_count | number}}<i class="fa fa-star" aria-hidden="true"></i>
+
+
+                           </p>
+
+                    </div>
+                </div><!---end of row---->
+                <div class="row">
+                    <div class="col-md-6">
+                    <p class="text-justify">{{ repo.description}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+
+
+
+        </div><!---end of col md6---->
+
+
+
+
+    </div><!---end of row--->
+
+    <div class="container text-center">
+
+        <ul class="pagination">
+            <li>
+                <a ng-click="repos.decrement()" aria-label="Previous">
+                    Prev
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a ng-click="repos.click()" aria-label="Next">
+                    Next
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+</div><!--end of container----->

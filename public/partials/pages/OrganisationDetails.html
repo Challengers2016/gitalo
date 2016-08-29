@@ -1,0 +1,151 @@
+
+<br>
+<br>
+<br>
+
+<div class="container">
+
+    <div class="row text-center">
+        <loading></loading>
+    </div>
+
+
+
+
+    <div class="row">
+
+
+
+
+
+        <div class="col-xs-12 col-sm-4 col-md-4">
+
+
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img ng-src="{{ orgDetails.organisation.avatar_url}}" alt="" class="img-rounded img-responsive" />
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-8">
+                        <h4 ng-if="orgDetails.organisation.login">
+                            {{ orgDetails.organisation.login }}
+                        </h4>
+
+                        <span>
+                            <i class="fa fa-gitlab" aria-hidden="true"></i>{{ orgDetails.organisation.followers  }} Followers
+                    </span>
+                        <br>
+
+                            <span>
+                            <i class="fa fa-gratipay" aria-hidden="true"></i>{{ orgDetails.organisation.following }} Following
+                       </span>
+<br>
+                            <span>
+                            <i class="fa fa-git-square" aria-hidden="true"></i>{{ orgDetails.organisation.public_gists }} Gists
+                   </span>
+<br>
+
+    <span>
+                            <i class="fa fa-code" aria-hidden="true"></i>{{ orgDetails.organisation.public_repos }} Repos
+                       </span>
+<br>
+                            <span>
+                            <i class="glyphicon glyphicon-gift"></i> Joined on {{ orgDetails.organisation.created_at | date:"MM/dd/yyyy" }}
+                         </span>
+
+                        <!-- -->
+                        <hr>
+                        <a ng-href="{{orgDetails.organisation.html_url}}">Github</a>
+                        <hr>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div><!---end of col md4---------->
+
+
+
+<!-------------------------------------------------------------------------------->
+
+
+        <div class="col-md-4">
+            <h3> {{ orgDetails.OrganisationRepos.length }} Repositories</h3>
+            <hr>
+
+            <table class="table table-hover">
+
+                <tbody>
+                <tr ng-repeat="r in orgDetails.OrganisationRepos">
+                    <td>
+                        <div class="alert repo" role="alert">
+
+                            <h3><a ui-sref="reposDetails({'username': '{{User.login}}',repos: '{{r.name }}' })"> {{ r.name }}</a> </h3>
+
+                            <div class="pull-right">
+
+                                <span class="glyphicon glyphicon-star">{{ r.stargazers_count}}</span>
+
+                                <i class="fa fa-code-fork" aria-hidden="true"></i>{{ r.forks_count}}
+                            </div>
+
+                            <br>
+
+
+                            <a ng-if="r.language"> language   :
+                                {{ r.language }} <i class="fa fa-language" aria-hidden="true"></i>
+                            </a>
+                            <br>
+
+                            <a ng-if="r.description"> {{ r.description}}</a>
+
+
+                        </div>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
+
+<!-------------------------------------------------------------------------------------------------------->
+        <div class="col-md-4">
+            <h3> {{ orgDetails.OrganisationMembers.length }}  Members</h3>
+            <hr>
+
+            <table class="table table-hover">
+
+                <tbody>
+                <tr ng-repeat="r in orgDetails.OrganisationMembers">
+                    <td>
+                        <div class="panel panel-default" role="alert">
+
+                            <h3 class="text-center"><a ui-sref="developerDetails({'username': '{{r.name}}' })"> {{ r.login }}</a> </h3>
+
+                        </div>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+
+
+        </div><!---end of ocl md4--->
+
+
+
+
+    </div><!----end of row---->
+</div><!---end of container------->

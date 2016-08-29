@@ -1,0 +1,29 @@
+<br><br>
+<div class="container-fluid well span6 text-center">
+    <div class="row-fluid">
+        <div class="span2" >
+            <img ng-src="{{User.github.cachedUserProfile.avatar_url}}" class="img-circle">
+        </div>
+
+        <div class="span8">
+            <h3>{{User.github.username}}</h3>
+            <h6>Email:{{User.github.email}}</h6>
+            <h6>location: {{User.github.cachedUserProfile.location}}</h6>
+            <h6>Join Us : {{User.github.cachedUserProfile.created_at}}</h6>
+
+        </div>
+
+        <div class="span2">
+            <div class="btn-group">
+                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                    Action
+                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+                    <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

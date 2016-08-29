@@ -1,0 +1,17 @@
+
+
+[
+
+  {"Name":"D3.js", "Website":"https://d3js.org/", "Description":"D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation.", "img" :"https://img.stackshare.io/service/1491/ZtYnmL9U.jpeg", "github":"https://github.com/d3/d3"},
+  {"Name":"HTML5", "Website":"https://www.w3.org/html/logo/", "Description":"5th major revision of the core language of the World Wide Web",
+    "img" :"https://img.stackshare.io/service/2538/kEpgHiC9.png", "github":"https://github.com/h5bp/html5-boilerplate"},
+  {"Name":"npm", "Website":"Doe", "Description":"The package manager for JavaScript.", "img" :"https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png"
+  , "github":"https://github.com/npm/npm"},
+  {"Name":"jQuery", "Website":"https://jquery.com/", "Description":"The Write Less, Do More, JavaScript Library.", "img" :"https://img.stackshare.io/service/1021/jquery_avatar.png",
+    "github":"https://github.com/jquery/jquery"},
+  {"Name":"Go", "Website":"Doe", "Description":"Doe", "img" :"", "github":""}
+
+
+
+
+]
