@@ -43,10 +43,11 @@ CONFIG THE ROUTING
               controller :'ReposDetailsCtrl as rd',
               resolve: {
 
+
                   getRepositorie: ['$stateParams', 'ReposService', function ($stateParams, ReposService) {
 
 
-
+                      console.log('data' + JSON.stringify($stateParams));
                       return ReposService.getRepos($stateParams.username,$stateParams.repos)
                   }],
                   //getReposContributors

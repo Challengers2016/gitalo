@@ -16,23 +16,121 @@
             </uib-tab>
             <uib-tab index="1" heading="Notifications " >
                 <p>Comming Soon</p>
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
             </uib-tab>
             <uib-tab index="2" heading="Starring">
 
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <ul>
-                    <li ng-repeat="wa in pr.Starting ">
-                        {{ wa }}
-                    </li>
-                </ul>
+                <div class="row">
+
+
+                    <div class="col-md-4">
+
+                        <div class="media" ng-repeat="wa in pr.Starting.data" ng-if="$index % 2 == 0">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" ng-src="{{wa.owner.avatar_url}}" alt="..."width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ wa.name}}</h4>
+
+                            </div>
+                        </div>
+
+                    </div><!----end of col fm4--->
+
+                    <!------------------------------------------------------>
+
+                    <div class="col-md-4">
+
+                        <div class="media" ng-repeat="wa in pr.Starting.data" ng-if="$index % 2 != 0">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" ng-src="{{wa.owner.avatar_url}}" alt="..."width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ wa.name}}</h4>
+
+                            </div>
+                        </div>
+
+                    </div><!----end of col fm4--->
+
+
+                    <!--------------------------------------->
+                    <div class="col-md-4">
+
+                        <div class="media" ng-repeat="wa in pr.Starting.data" ng-if="$index % 3 == 0">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" ng-src="{{wa.owner.avatar_url}}" alt="..."width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ wa.name}}</h4>
+
+                            </div>
+                        </div>
+
+                    </div><!----end of col fm4--->
+
+                </div><!----end of row----->
+
+
             </uib-tab>
             <uib-tab index="3" heading="Watching">
-                <ul>
-                    <li ng-repeat="wa in pr.watching">
-                        {{ wa }}
-                    </li>
-                </ul>
-                <i class="fa fa-eye" aria-hidden="true"></i>
+
+                <div class="row">
+
+
+
+
+                    <!------------------------------------------------------>
+
+                    <div class="col-md-6">
+
+                        <div class="media" ng-repeat="wa in pr.watching.data" ng-if="$index % 2 == 0">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" ng-src="{{wa.owner.avatar_url}}" alt="..."width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">
+                                    <a ui-sref="reposDetails({'username': '{{ wa.owner.login }}',repos: '{{wa.name }}' })">
+                                        {{ wa.name}} </a>
+                                </h4>
+                                <p>{{ wa.owner.login}}</p>
+
+                            </div>
+                        </div>
+
+                    </div><!----end of col fm4--->
+
+
+                    <!--------------------------------------->
+                    <div class="col-md-6">
+
+                        <div class="media" ng-repeat="wa in pr.watching.data" ng-if="$index % 2 != 0" >
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" ng-src="{{wa.owner.avatar_url}}" alt="..."width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+
+                                <h4 class="media-heading">
+                                    <a ui-sref="reposDetails({'username': '{{wa.owner.login }}',repos: '{{wa.name }}' })">{{ wa.name}}
+                                </a>
+                                </h4>
+                                <p>{{ wa.owner.login}}</p>
+                            </div>
+                        </div>
+
+                    </div><!----end of col fm4--->
+
+                </div><!----end of row----->
             </uib-tab>
 
         </uib-tabset>

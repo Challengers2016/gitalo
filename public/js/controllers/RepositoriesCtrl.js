@@ -16,7 +16,7 @@ var repos = this ;
 
 
 
-
+repos.loading = true ;
         //function orderBy
 
         repos.orderBy = function(value){
@@ -24,7 +24,9 @@ var repos = this ;
 
         }
 
-
+        $timeout(function () {
+            repos.loading = false ;
+        }, 1000);
 
 
         //function to serahc from github

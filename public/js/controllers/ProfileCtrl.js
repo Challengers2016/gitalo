@@ -8,14 +8,14 @@ angular.module('GITALO')
 
 var pr = this ;
 
-        $scope.User =Auth.$getAuth() ;
+      pr.User =Auth.$getAuth() ;
 
 
 
 
 
 
-
+console.log('User' + JSON.stringify(pr.User))
 
 
 

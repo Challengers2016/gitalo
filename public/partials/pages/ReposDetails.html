@@ -12,21 +12,21 @@
     <div class="row">
         <div class="col-md-6">
             <div class="jumbotron" style="background-color: #FAFAFA">
-                <h4 class="text-center">Colloaborators {{ rd.Repo.contributors.length }}</h4>
+                <h4 class="text-center"> {{ rd.Repo.contributors.length }} Colloaborators </h4>
 
 
 <div class="row">
 
-                <div class="col-md-2" ng-repeat="col in rd.Repo.contributors" ng-if="$index % 3 == 0">
+                <div class="col-md-2" ng-repeat="col in rd.Repo.contributors" ng-if="$index % 2 == 0" >
                     <a ui-sref="developerDetails({'username': '{{col.login}}'})" >
                     <img class="img-responsive img-rounded" ng-src="{{col.avatar_url}}" width="70px" style="margin: auto;padding: 2px">
                         </a>
                 </div><!----end of row----->
 
 
-                <div class="col-md-2" ng-repeat="col in rd.Repo.contributors" ng-if="rd.Repo.contributors.length > ($index + 1)">
-                    <a ui-sref="developerDetails({'username': '{{Repo.contributors.login}}'})" >
-                    <img class="img-responsive img-rounded" ng-src="{{col.avatar_url}}" width="70px" style="margin: auto">
+                <div class="col-md-2" ng-repeat="col in rd.Repo.contributors" ng-if="rd.Repo.contributors.length > ($index + 1) && $index % 2 == 0">
+                    <a ui-sref="developerDetails({'username': '{{Repo.contributors[($index+1)].login}}'})" >
+                    <img class="img-responsive img-rounded" ng-src="{{Repo.contributors[($index+1)].avatar_url}}" width="70px" style="margin: auto">
                         </a>
                 </div><!----end of row----->
 </div><!--end fo row----->
