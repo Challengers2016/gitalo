@@ -2,7 +2,7 @@
 
 // Declare public level module which depends on views, and components
 angular.module('GITALO')
-.controller('DevelopersCtrl',['$scope','$q','DeveloperService',function($scope,$q,DeveloperService){
+.controller('DevelopersCtrl',['$scope','$q','DeveloperService','$http',function($scope,$q,DeveloperService,$http){
 
 var dd = this ;
         dd.developers =[];
@@ -146,12 +146,57 @@ function getUsers() {
         })*/
 
         dd.follow = function(){
-            //follow user
+            /*
+             $.ajax({
+             type: "PUT",
+             url: "user/starred/:owner/:repo",
+             username: $("#github-username").val(),
+             password: $("#github-password").val(),
+             success: function(data) {
+             $("#github-overlay").css("display", "none");
+             $("#github-star").attr("src", "http://placehold.it/50/e8117f/ffffff");
+             }
+             });
+             return false;
+             */
+
+            /*
+             $.ajax({
+             url: 'https://api.github.com/repos/some_name/some_app/issues/23?access_token=some_number',
+             type: 'PATCH',
+             data: '{"state": "closed" }',
+             contentType: "application/json; charset=utf-8",
+             success: function(result) {
+             alert(JSON.stringify(result));
+             }
+             */
+            //04d0945cf8fdca9ef2935cd4ea2b19097b5ad3f7
+
+         $http({
+                method: "POST",
+                url: '/JakeWharton/following/Rebaiahmed',
+             contentType: "application/json",
+             dataType: "json",
+             data: JSON.stringify({
+                 "content": "aGVsbG8=",
+                 "encoding": "utf-8"
+             }), headers: {
+                 Authorization: 'token 04d0945cf8fdca9ef2935cd4ea2b19097b5ad3f7'
+             }
+            }).success(function(data){
+             console.Log('data' + data)
+         }).catch(function(err){
+             console.log('err' + JSON.stringify(err))
+         })
         }
 
 
 
 
+
+        $scope.makeUrl = function() {
+            return "https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true&size=large";
+        }
 
 
 

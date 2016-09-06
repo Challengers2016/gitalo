@@ -11,6 +11,11 @@
 
 
     <div class="row">
+
+        <div class="col-md-4">
+
+        </div>
+
         <nav aria-label="Page navigation" class="text-center">
             <ul class="pagination">
                 <li>
@@ -41,67 +46,89 @@
                 <tbody>
 
 
-                <tr ng-repeat="user in org.organisations track by $index" ng-if="$index % 2 == 0" >
+                <tr ng-repeat="user in org.organisations track by $index" ng-if=" $index % 2 == 0">
 
                     <td>
 
-                        <div class="alert">
-
-                            <h3 class="text-center">
-                                <a ui-sref="organisationDetails({'username': org.organisations[($index)].data.login   })"> {{ org.organisations[($index)].data.login }}</a>
-                            </h3>
-
-
-
-<div class="pull-left">
-                            <p>
-                                <a ui-sref="organisationDetails({'username': org.organisations[($index)].data.login   })">
-                                    <img ng-src="{{org.organisations[($index)].data.avatar_url}}" width="70px">
+                        <div class="media">
+                            <div class="media-left">
+                                <a ui-sref="organisationDetails({'username': organisations[($index)].data.login   })">
+                                    <img ng-src="{{org.organisations[($index)].data.avatar_url}}" width="70px" class="media-object">
                                 </a>
-                            </p>
-
-    <p ng-if="user.data.description">
-        Description :
-    {{user.data.description}}
-    </p>
-</div><!---end of pull left----->
-
-                            <div class="pull-right">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading">
+                                    <a ui-sref="organisationDetails({ username: org.organisations[($index)].data.login })"> {{ org.organisations[($index)].data.login }}</a>
+                                </h3>
+                                <!--------------------------->
 
                                 <p>
                                     <span>
-                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{user.data.followers}} Followers
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{ org.organisations[($index)].data.followers}} Followers
                                     </span>
                                     <span>
-                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{user.data.following}} Following
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{ org.organisations[($index)].data.following}} Following
                                     </span>
                                 </p>
 
                                 <!----------->
                                 <p>
                                     <span>
-                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{user.data.public_gists}} public gists
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{ org.organisations[($index)].data.public_gists}} public gists
                                     </span>
                                     <span>
-                                        <i class="fa fa-code" aria-hidden="true"></i>{{user.data.public_repos}} public repos
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{ org.organisations[($index)].data.public_repos}} public repos
                                     </span>
                                 </p>
 
-                                <button type="button" class="btn btn-default">
-                                    Follow
-                                    <i class="fa fa-deaf" aria-hidden="true"></i>
-                                </button>
-                            </div><!----end of pull right-------->
+                                <p>
+
+                                    <span ng-if="org.organisations[($index)].data.email " class="email">
+                                       <i class="fa fa-envelope" aria-hidden="true"></i> {{ org.organisations[($index)].data.email}}
+                                    </span>
 
 
-                            <!----------------->
+                                    <!------------>
 
 
+                                     <span class="notFound" ng-if="!org.organisations[($index)].data.email ">
+                                       <i class="fa fa-envelope" aria-hidden="true"></i> No email found
+                                    </span>
+                                 <span ng-if="org.organisations[($index)].data.location" class="location">
+                                       <i class="fa fa-map-marker" aria-hidden="true"></i> <a>{{ org.organisations[($index)].data.location}}</a>
+                                    </span>
+
+                                     <span class="notFound" ng-if="!org.organisations[($index)].data.location">
+                                       <i class="fa fa-map-marker" aria-hidden="true"></i> <a>No location yet !</a>
+                                    </span>
+
+                                </p>
+
+                                <!---------------------->
+                                <p>
+                                    <a ng-href="{{org.organisations[($index)].data.blog}}" ng-if="org.organisations[($index)].data.blog">
+                                    <span ng-if="org.organisations[($index)].data.blog" class="blog">
+                                     <i class="fa fa-rss-square" aria-hidden="true"></i>{{ org.organisations[($index)].data.blog}}
+                                    </span>
+                                    </a>
+
+                                    <!----------------->
+
+                                    <a  ng-if="!org.organisations[($index)].data.blog">
+                                    <span class="notFound">
+                                     <i class="fa fa-rss-square" aria-hidden="true"></i>No Blog yet !
+                                    </span>
+                                    </a>
+
+
+                                </p>
+
+
+                            </div>
                         </div>
 
                     </td>
                 </tr>
-
 
                 <!-------------------->
 
@@ -135,31 +162,18 @@
 
                     <td>
 
-                        <div class="alert">
-
-
-
-
-                            <h3 class="text-center">
-                                <a ui-sref="organisationDetails({ username: org.organisations[($index + 1)].data.login })"> {{ org.organisations[($index + 1)].data.login }}</a>
-                            </h3>
-
-<!------------------------>
-                            <div class="pull-left">
+                        <div class="media">
+                            <div class="media-left">
                                 <a ui-sref="organisationDetails({'username': organisations[($index + 1)].data.login   })">
-                                <img ng-src="{{organisations[($index + 1)].data.avatar_url}}" width="70px">
-                            </a>
-                            <p ng-if="org.organisations[($index + 1)].data.description">Description :
-                                {{org.organisations[($index + 1)].data.description}}
-                            </p>
-                                </div><!--end of pull left--->
-
-
-                            <!----------------------------------------------->
-
-                            <div class="pull-right">
-
+                                    <img class="media-object" ng-src="{{org.organisations[($index + 1)].data.avatar_url}}" width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading">
+                                    <a ui-sref="organisationDetails({ username: org.organisations[($index + 1)].data.login })"> {{ org.organisations[($index + 1)].data.login }}</a>
+                                </h3>
                                 <p>
+
                                     <span>
                                         <i class="fa fa-gitlab" aria-hidden="true"></i> {{ org.organisations[($index + 1)].data.followers}} Followers
                                     </span>
@@ -177,18 +191,47 @@
                                         <i class="fa fa-code" aria-hidden="true"></i>{{ org.organisations[($index + 1)].data.public_repos}} public repos
                                     </span>
                                 </p>
+                                <!------------------------>
 
-                                <button type="button" class="btn btn-default">
-                                    Follow
-                                    <i class="fa fa-deaf" aria-hidden="true"></i>
-                                </button>
-                            </div><!----end of pull right-------->
+                                <p ng-click="openModal(org.organisations[($index + 1)].data.email)">
+                                    <span class="email" ng-if="org.organisations[($index + 1)].data.email " >
+                                       <i class="fa fa-envelope" aria-hidden="true"></i> {{ org.organisations[($index + 1)].data.email}}
+                                    </span>
+
+                                    <!------------>
+                                     <span class="notFound" ng-if="!org.organisations[($index + 1)].data.email ">
+                                       <i class="fa fa-envelope" aria-hidden="true"></i> No email found
+                                    </span>
+                                 <span class="location" ng-if="org.organisations[($index + 1)].data.location">
+                                       <i class="fa fa-map-marker" aria-hidden="true"></i> <a>{{ org.organisations[($index + 1)].data.location}}</a>
+                                    </span>
+
+                                     <span class="notFound" ng-if="!org.organisations[($index + 1)].data.location">
+                                       <i class="fa fa-map-marker" aria-hidden="true"></i> <a>No location yet !</a>
+                                    </span>
+
+                                </p>
+
+                                <!---------------------->
+                                <p>
+                                    <a ng-href="{{org.organisations[($index+1)].data.blog}}" ng-if="org.organisations[($index + 1)].data.blog">
+                                    <span ng-if="org.organisations[($index + 1)].data.blog" class="blog">
+                                     <i class="fa fa-rss-square" aria-hidden="true"></i>{{ org.organisations[($index + 1)].data.blog}}
+                                    </span>
+                                    </a>
+
+                                    <!----------------->
+
+                                    <a ng-if="!org.organisations[($index + 1)].data.blog">
+                                    <span class="notFound">
+                                     <i class="fa fa-rss-square" aria-hidden="true"></i>No Blog yet !
+                                    </span>
+                                    </a>
 
 
-                            <!-------------------------------------->
+                                </p>
 
-
-
+                            </div>
                         </div>
 
                     </td>
@@ -215,6 +258,12 @@
 <!-------------------------->
 
     <div class="row">
+
+
+        <div class="col-md-4">
+
+        </div>
+
         <nav aria-label="Page navigation" class="text-center">
             <ul class="pagination">
                 <li>

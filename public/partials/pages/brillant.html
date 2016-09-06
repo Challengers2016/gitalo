@@ -75,3 +75,386 @@
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="text-center">
+    <a ui-sref="organisationDetails({ username: org.organisations[($index + 1)].data.login })"> {{ org.organisations[($index + 1)].data.login }}</a>
+</h3>
+
+
+<!------------------------>
+<div class="pull-left">
+    <a ui-sref="organisationDetails({'username': organisations[($index + 1)].data.login   })">
+        <img ng-src="{{user.data.avatar_url}}" width="70px">
+    </a>
+
+</div><!--end of pull left--->
+
+
+<!----------------------------------------------->
+
+<div class="pull-right">
+
+    <p>
+                                    <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{ org.organisations[($index + 1)].data.followers}} Followers
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{ org.organisations[($index + 1)].data.following}} Following
+                                    </span>
+    </p>
+
+    <!----------->
+    <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{ org.organisations[($index + 1)].data.public_gists}} public gists
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{ org.organisations[($index + 1)].data.public_repos}} public repos
+                                    </span>
+    </p>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
+</div><!----end of pull right-------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="alert">
+
+    <div class="row">
+
+
+        <h3 class="text-center">
+            <a ui-sref="organisationDetails({ username: org.organisations[($index)].data.login })"> {{ org.organisations[($index)].data.login }}</a>
+        </h3>
+
+        <!------------------------>
+        <div class="pull-left">
+            <a ui-sref="organisationDetails({'username': organisations[($index)].data.login   })">
+                <img ng-src="{{user.data.avatar_url}}" width="70px">
+            </a>
+
+        </div><!--end of pull left--->
+
+
+        <!----------------------------------------------->
+
+        <div class="pull-right">
+
+            <p>
+                                    <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{ org.organisations[($index)].data.followers}} Followers
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{ org.organisations[($index)].data.following}} Following
+                                    </span>
+            </p>
+
+            <!----------->
+            <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{ org.organisations[($index)].data.public_gists}} public gists
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{ org.organisations[($index)].data.public_repos}} public repos
+                                    </span>
+            </p>
+
+            <iframe src="https://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
+        </div><!----end of pull right-------->
+
+
+        <!-------------------------------------->
+
+
+    </div><!---end of row---------->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="well well-sm">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <img ng-src="{{ orgDetails.organisation.avatar_url}}" alt="" class="img-rounded img-responsive" />
+        </div>
+
+
+        <div class="col-sm-6 col-md-8">
+            <h4 ng-if="orgDetails.organisation.login">
+                {{ orgDetails.organisation.login }}
+            </h4>
+
+                        <span>
+                            <i class="fa fa-gitlab" aria-hidden="true"></i>{{ orgDetails.organisation.followers  }} Followers
+                    </span>
+            <br>
+
+                            <span>
+                            <i class="fa fa-gratipay" aria-hidden="true"></i>{{ orgDetails.organisation.following }} Following
+                       </span>
+            <br>
+                            <span>
+                            <i class="fa fa-git-square" aria-hidden="true"></i>{{ orgDetails.organisation.public_gists }} Gists
+                   </span>
+            <br>
+
+    <span>
+                            <i class="fa fa-code" aria-hidden="true"></i>{{ orgDetails.organisation.public_repos }} Repos
+                       </span>
+            <br>
+                            <span>
+                            <i class="glyphicon glyphicon-gift"></i> Joined on {{ orgDetails.organisation.created_at | date:"MM/dd/yyyy" }}
+                         </span>
+
+            <!-- -->
+            <hr>
+            <a ng-href="{{orgDetails.organisation.html_url}}">Github</a>
+            <hr>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="alert animated fadeIn repo ">
+
+
+    <div class="row dev">
+
+
+        <div class="col-md-6 text-center">
+            <h3 class="">
+                <a ui-sref="developerDetails({'username':  dd.developers[($index)].data.login })"> {{  dd.developers[($index)].data.login }}</a>
+            </h3>
+
+            <h1>
+                <a ui-sref="developerDetails({'username':  dd.developers[($index)].data.login  })">
+                    <img  ng-src="{{  dd.developers[($index)].data.avatar_url}}" width="120px" class="img-rounded lazy">
+                </a>
+            </h1>
+
+        </div>
+
+        <!------------------->
+        <div class="col-md-6 panel-footer">
+            <p>
+ <span>
+                                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{  dd.developers[($index)].data.followers | number}} Followers
+                                    </span>
+                <br>
+                                    <span>
+                                        <i class="fa fa-gratipay" aria-hidden="true"></i>{{  dd.developers[($index)].data.following | number}} Following
+                                    </span>
+                <br>
+            </p>
+
+            <!----------->
+            <p>
+                                    <span>
+                                       <i class="fa fa-git-square" aria-hidden="true"></i> {{  dd.developers[($index)].data.public_gists}} public gists
+                                    </span>
+                <br>
+                                    <span>
+                                        <i class="fa fa-code" aria-hidden="true"></i>{{  dd.developers[($index)].data.public_repos}} public repos
+                                    </span>
+                <br>
+            </p>
+
+
+
+
+
+            <iframe src="https://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
+
+        </div><!--end of ocl md6-->
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="well well-sm">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <img ng-src="{{ DD.User.avatar_url}}" alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-6 col-md-8">
+            <h4 ng-if="DD.User.login">
+                {{ DD.User.login }}
+            </h4>
+            <small ng-if="DD.User.location"><cite title="San Francisco, USA">{{ DD.User.location}} <i class="glyphicon glyphicon-map-marker">
+            </i></cite></small>
+            <p>
+                <i ng-if="DD.User.email" class="glyphicon glyphicon-envelope"></i>{{ DD.User.email  }}
+                <br />
+                <i ng-if="DD.User.blog" class="glyphicon glyphicon-globe"></i><a ng-if="User.blog" href="http://www.jquery2dotnet.com">{{ User.blog }}</a>
+                <br />
+                <i class="glyphicon glyphicon-gift"></i> Joined on {{ DD.User.created_at | date:"MM/dd/yyyy" }}
+                <br>
+
+                <i class="fa fa-github-square" aria-hidden="true" ng-if="DD.User.bio"></i>
+                {{ DD.User.bio }}
+
+
+            </p>
+            <!-- Split button -->
+            <hr>
+            <h5 class="text-center"><a ng-href="{{ DD.User.html_url}}">Show Github</a></h5>
+            <hr>
+            <div class="row">
+                <div class="col-md-6" ng-if="DD.User.followers">
+                    <h5><a>{{DD.User.followers | number }} Followers </a></h5>
+                </div>
+
+                <div class="col-md-6" ng-if="DD.User.following">
+                    <h5> <a>{{ DD.User.following | number }} Following</a></h5>
+                </div>
+
+
+
+            </div><!---end of row-->
+
+
+
+            <hr>
+
+            <div class="row">
+                <h5 class="text-center" ng-if="!DD.User.organisations">0 Organisations</h5>
+                <h5 class="text-center" ng-if="DD.User.organisations">{{ DD.User.organisations.length }} Organisations</h5>
+                <div class="row">
+                    <div class="col-md-2" ng-repeat="org in DD.User.organisations" ng-if="$index % 3 == 0">
+                        <a><img ng-src="{{ DD.User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
+                    </div>
+
+                    <div class="col-md-2"  ng-if="DD.User.organisations.length > ($index + 1)">
+                        <a>  <img ng-src="{{ DD.User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+    <h5 class="text-center" ng-if="!DD.User.organisations">0 Organisations</h5>
+    <h5 class="text-center" ng-if="DD.User.organisations">{{ DD.User.organisations.length }} Organisations</h5>
+    <div class="row">
+        <div class="col-md-2" ng-repeat="org in DD.User.organisations" ng-if="$index % 3 == 0">
+            <a><img ng-src="{{ DD.User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
+        </div>
+
+        <div class="col-md-2"  ng-if="DD.User.organisations.length > ($index + 1)">
+            <a>  <img ng-src="{{ DD.User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
+        </div>
+
+    </div>
+</div>

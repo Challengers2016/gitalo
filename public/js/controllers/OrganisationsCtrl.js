@@ -35,7 +35,11 @@ angular.module('GITALO')
 
 
 
+//function to open modal
 
+        org.openModal = function(email){
+            alert('console.log' + email);
+        }
 
 
 

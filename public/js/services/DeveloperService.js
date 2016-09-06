@@ -13,7 +13,7 @@
 
     angular
         .module('GITALO')
-        .service('DeveloperService',['$http','$q', function($http,$q){
+        .service('DeveloperService',['$http','$q','$rootScope', function($http,$q,$rootScope){
             var  deferObject ;
 
             this.getUsers = function(page) {
@@ -122,11 +122,55 @@
                         return JSON.parse(user);
                     }
                 }
+,
+
+                this.UserWatching= function(){
+
+                    var  deferObject ;
+                    var promise  =$http.get('https://api.github.com/users/' +$rootScope.loggedInUser.github.username+  '/subscriptions');
+                    deferObject =  deferObject || $q.defer();
+
+                    promise.then(
+                        // OnSuccess function
+                        function(answer){
+                            // This code will only run if we have a successful promise.
+                            deferObject.resolve(answer);
+                        },
+                        // OnFailure function
+                        function(reason){
+                            // This code will only run if we have a failed promise.
+                            deferObject.reject(reason);
+                        });
+
+                    return deferObject.promise;
+
+                }
 
 
 
 
 
+            this.UserStarting= function(){
+
+                var  deferObject ;
+                var promise  =$http.get('https://api.github.com/users/' +$rootScope.loggedInUser.github.username+  '/starred');
+                deferObject =  deferObject || $q.defer();
+
+                promise.then(
+                    // OnSuccess function
+                    function(answer){
+                        // This code will only run if we have a successful promise.
+                        deferObject.resolve(answer);
+                    },
+                    // OnFailure function
+                    function(reason){
+                        // This code will only run if we have a failed promise.
+                        deferObject.reject(reason);
+                    });
+
+                return deferObject.promise;
+
+            }
 
 
 

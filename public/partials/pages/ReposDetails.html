@@ -29,40 +29,37 @@
                     <img class="img-responsive img-rounded" ng-src="{{col.avatar_url}}" width="70px" style="margin: auto">
                         </a>
                 </div><!----end of row----->
-</div>
+</div><!--end fo row----->
 
 
                 </div><!--end of jumbotron--->
         </div><!--end of olc md6--->
 
+
+
+
+
+
+
+
+
         <!----------->
         <div class="col-md-6">
 
 
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" ng-src="{{rd.Repo.owner.avatar_url}}" alt="..." width="30px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading" style="color: #3F51B5">{{ rd.Repo.name }}</h4>
+
+                </div>
+            </div>
 
 
-
-
-            <div class="alert " role="alert">
-
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                <h3><a  ng-href="{{Repo.html_url}}">{{rd.Repo.name }}</a></h3>
-                        <br>
-                        <p><a ng-href="{{rd.Repo.html_url}}">View it in github</a> </p>
-                    </div><!--end of col md4--->
-
-
-                    <div class="col-md-6" >
-<a  ng-href="{{Repo.html_url}}">
-                       <img class="img-responsive img-circle" ng-src="{{rd.Repo.owner.avatar_url}}" width="70px">
-</a>
-
-                    </div>
-
-</div><!----end of row----->
 <div class="row">
 
                 <div class="pull-right">
@@ -86,31 +83,37 @@
 
                 <hr>
                 <div class="row">
+
+
                     <div class="col-md-6">
-                <h5 class="text-info">Description</h5>
+                <h5 class="text-info">
+                    Description
+                </h5>
                     <p>{{ rd.Repo.description }}</p>
                     </div><!--end of col md6--->
 
+
+
                     <div class="col-md-3">
                         <p class="text-justify">
-                            <i class="fa fa-star" aria-hidden="true"></i>{{ rd.Repo.stargazers_count | number }}
+                            <i class="fa fa-star" aria-hidden="true"></i> Stars :{{ rd.Repo.stargazers_count | number }}
                             <br>
-                            <i class="fa fa-eye" aria-hidden="true"></i>{{ rd.Repo.watchers_count | number }}
+                            <i class="fa fa-eye" aria-hidden="true"></i> Watchers :{{ rd.Repo.watchers_count | number }}
                             <br>
-                            <i class="fa fa-code-fork" aria-hidden="true"></i>{{ rd.Repo.forks_count | number }}
+                            <i class="fa fa-code-fork" aria-hidden="true"></i> Forks :{{ rd.Repo.forks_count | number }}
                             <br>
                         </p>
-                    </div>
+                    </div><!---end of col ùmd6----->
                 </div><!--end of row---->
 
 
-            </div>
+            </div><!----end of big col dm6-------------------->
 
 
-        </div>
-    </div>
 
 
+
+</div>
 
 
 

@@ -14,7 +14,10 @@ angular.module('GITALO')
         orgDetails.OrganisationRepos = getOrganisationRepos.data;
         orgDetails.OrganisationMembers = getOrganisationMembers.data;
 
-
+        $scope.modal = {
+            "title": "Title",
+            "content": "Hello Modal<br />This is a multiline message!"
+        };
 
         $timeout(function () {
             orgDetails.loading = false;

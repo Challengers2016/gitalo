@@ -4,7 +4,7 @@
 
 
 // Declare public level module which depends on views, and components
-angular.module('GITALO',['ui.router','ngAnimate','ui.bootstrap','firebase','ngLoadingSpinner','angular-loading-bar'])
+angular.module('GITALO',['ui.router','ngAnimate','ui.bootstrap','firebase','ngLoadingSpinner','angular-loading-bar','duScroll'])
 
 
 
@@ -141,10 +141,37 @@ CONFIG THE ROUTING
           .state('Profile', {
               url: '/Profile',
               cache : false,
+
               templateUrl: 'partials/pages/Profile.html',
-              controller :'ProfileCtrl',
+              controller :'ProfileCtrl as pr',
+
+              resolve: {
+
+
+                  getWatching: ['DeveloperService', function (DeveloperService) {
+                      return DeveloperService.UserWatching();
+                  }],
+                  getStarting: ['DeveloperService', function (DeveloperService) {
+                      return DeveloperService.UserStarting();
+                  }],
+
+              }
+          })
+
+          .state('GIT', {
+              url: '/GIT',
+              cache : false,
+
+              templateUrl: 'partials/pages/Discover.git.html',
+              controller :'ProfileCtrl as pr',
 
           })
+
+
+
+
+
+
 
 
 
@@ -183,4 +210,11 @@ CONFIG THE ROUTING
             $rootScope.loggedInUser =  DeveloperService.getloggedInUser();
 
         }
+    }])
+
+
+    .filter('trustAsResourceUrl', ['$sce', function($sce) {
+        return function(val) {
+            return $sce.trustAsResourceUrl(val);
+        };
     }])

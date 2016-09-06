@@ -12,79 +12,87 @@
 
 
     <div class="row">
-        <div class=" col-md-5">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img ng-src="{{ DD.User.avatar_url}}" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4 ng-if="DD.User.login">
-                            {{ DD.User.login }}
-                        </h4>
-                        <small ng-if="DD.User.location"><cite title="San Francisco, USA">{{ DD.User.location}} <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
-                        <p>
-                            <i ng-if="DD.User.email" class="glyphicon glyphicon-envelope"></i>{{ DD.User.email  }}
-                            <br />
-                            <i ng-if="DD.User.blog" class="glyphicon glyphicon-globe"></i><a ng-if="User.blog" href="http://www.jquery2dotnet.com">{{ User.blog }}</a>
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i> Joined on {{ DD.User.created_at | date:"MM/dd/yyyy" }}
-                            <br>
+        <div class=" col-md-6">
 
-                                <i class="fa fa-github-square" aria-hidden="true" ng-if="DD.User.bio"></i>
-                          {{ DD.User.bio }}
+            <div class="media">
+                <div class="media-left media-top">
+                    <a href="#">
+                        <img class="media-object" ng-src="{{ DD.User.avatar_url}}" alt="..." width="70px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"> {{ DD.User.login }}</h4>
 
+                    <small ng-if="DD.User.location"><cite title="San Francisco, USA">{{ DD.User.location}} <i class="glyphicon glyphicon-map-marker">
+                    </i></cite></small>
+                    <p class="orgDetails">
+                        <i ng-if="DD.User.email" class="glyphicon glyphicon-envelope"></i>{{ DD.User.email  }}
+                        <br />
+                        <i ng-if="DD.User.blog" class="glyphicon glyphicon-globe"></i><a ng-if="User.blog" ng-href="DD.User.blog">{{ DD.User.blog }}</a>
+                    </p>
 
-                        </p>
-                        <!-- Split button -->
-                      <hr>
-                        <h5 class="text-center"><a ng-href="{{ DD.User.html_url}}">Show Github</a></h5>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-6" ng-if="DD.User.followers">
-  <h5><a>{{DD.User.followers | number }} Followers </a></h5>
-                            </div>
+                    <p class="orgDetails">
+                        <i class="fa fa-calendar" aria-hidden="true"></i> Joined on {{ DD.User.created_at | date:"MM/dd/yyyy" }}
+                     </p>
 
-                            <div class="col-md-6" ng-if="DD.User.following">
-                                <h5> <a>{{ DD.User.following | number }} Following</a></h5>
-                            </div>
+                    <p class="orgDetails">
+                        <i class="fa fa-github-square" aria-hidden="true" ng-if="DD.User.bio"></i>
+                        {{ DD.User.bio }}
+                     </p>
 
 
 
-                        </div><!---end of row-->
+
+                    <p class="orgDetails">
+                        <i class="fa fa-gitlab" aria-hidden="true"></i> {{ DD.User.followers | number  }} Followers
+                    </p>
+
+
+                    <p class="orgDetails">
+                        <i class="fa fa-gratipay" aria-hidden="true"></i> {{ DD.User.following | number }} Following
+                    </p>
+
+                  <!----->
+                    <h5 class="text-center"><a ng-href="{{ DD.User.html_url}}">
+                        <i class="fa fa-github" aria-hidden="true"></i> Show Github</a></h5>
+
+
+                    <hr>
 
 
 
-                        <hr>
-
-                        <div class="row">
-                            <h5 class="text-center" ng-if="!DD.User.organisations">0 Organisations</h5>
-                            <h5 class="text-center" ng-if="DD.User.organisations">{{ DD.User.organisations.length }} Organisations</h5>
-                            <div class="row">
-                                <div class="col-md-2" ng-repeat="org in DD.User.organisations" ng-if="$index % 3 == 0">
-                                    <a><img ng-src="{{ DD.User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
-                                </div>
-
-                                <div class="col-md-2"  ng-if="DD.User.organisations.length > ($index + 1)">
-                                  <a>  <img ng-src="{{ DD.User.organisations[$index].avatar_url}}" class="img-responsive img-circle" width="30px"> </a>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
+
+<h3 style="font-family: Roboto, Helvetica, Arial, sans-serif">{{ DD.User.organisations.length }} Organisations</h3>
+            <!------------------------>
+            <ul class="media-list">
+                <li class="media" ng-repeat="org in DD.User.organisations ">
+                    <div class="media-right">
+                        <a href="#">
+                            <img class="media-object" ng-src="{{ org.avatar_url}}" alt="..." width="70px">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a ui-sref="organisationDetails({ username: org.login })">{{org.login }}</a>
+                        </h4>
+
+                    </div>
+
+                </li>
+                <!----------------->
+
+            </ul>
+
         </div><!---end of col md6---------->
 
 
 
+<!----------------------------------------------------------->
 
 
-
-        <div class="col-md-7">
+        <div class="col-md-6">
             <h3> {{ DD.User.public_repos}} Repositories</h3>
             <hr>
 
@@ -114,29 +122,44 @@
                 <tbody>
                 <tr ng-repeat="r in DD.User.repos | orderBy:'stargazers_count' | filter:searchText ">
                     <td>
-                        <div class="alert  repo" role="alert" style="border: 2px solid #3F51B5;border-radius: 25px;color: #001714;background-color: #FFFFFF">
+                        <div class="alert  repo" role="alert" style=" border-style: solid;
+    border-color: #F5F5F5;">
 
                         <h3><a ui-sref="reposDetails({'username': '{{DD.User.login}}',repos: '{{r.name }}' })"> {{ r.name }}</a> </h3>
 
-                            <div class="pull-right">
-
-                                <span class="glyphicon glyphicon-star">{{ r.stargazers_count}}</span>
-
-                                <i class="fa fa-code-fork" aria-hidden="true"></i>{{ r.forks_count}}
-                            </div>
-
-                            <br>
 
 
-                            <a ng-if="r.language"> language   :
-                                {{ r.language }} <i class="fa fa-language" aria-hidden="true"></i>
-                            </a>
-                            <br>
+                                <p>
+                                     <span style="font-weight: bold">
+                                           <i class="fa fa-star" aria-hidden="true"></i> Stars    </span>:
+                                {{ r.stargazers_count}}
 
-                            <a ng-if="r.description"> {{ r.description}}</a>
+                                    </p>
+
+<!------------------------------------------------------------>
+                                <p>
+                                     <span style="font-weight: bold">
+                             <i class="fa fa-code-fork" aria-hidden="true"></i> Forks :  </span> {{ r.forks_count}}
+
+                                </p>
+                                <!------------------------------------------------------------>
 
 
-                        </div>
+
+                            <p ng-if="r.language">
+                                <span style="font-weight: bold">
+                                   <i class="fa fa-code" aria-hidden="true"></i> language </span>   :
+                                {{ r.language }}
+                            </p>
+
+
+                            <p ng-if="r.description">
+                                <span style="font-weight: bold">
+                             <i class="fa fa-history" aria-hidden="true"></i>Description  </span>:
+                                {{ r.description}}
+                            </p>
+
+
                     </td>
 
                 </tr>

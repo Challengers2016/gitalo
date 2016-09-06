@@ -1,29 +1,60 @@
-<br><br>
-<div class="container-fluid well span6 text-center">
-    <div class="row-fluid">
-        <div class="span2" >
-            <img ng-src="{{User.github.cachedUserProfile.avatar_url}}" class="img-circle">
-        </div>
+<br>
+<br>
+<br>
+<div class="container">
 
-        <div class="span8">
-            <h3>{{User.github.username}}</h3>
-            <h6>Email:{{User.github.email}}</h6>
-            <h6>location: {{User.github.cachedUserProfile.location}}</h6>
-            <h6>Join Us : {{User.github.cachedUserProfile.created_at}}</h6>
 
-        </div>
 
-        <div class="span2">
-            <div class="btn-group">
-                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                    Action
-                    <span class="icon-cog icon-white"></span><span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                    <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+    <div>
+
+
+
+        <uib-tabset active="activeJustified" justified="true">
+            <uib-tab index="0" heading="Issues" >
+                <p>Comming Soon</p>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </uib-tab>
+            <uib-tab index="1" heading="Notifications " >
+                <p>Comming Soon</p>
+            </uib-tab>
+            <uib-tab index="2" heading="Starring">
+
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <ul>
+                    <li ng-repeat="wa in pr.Starting ">
+                        {{ wa }}
+                    </li>
                 </ul>
-            </div>
-        </div>
+            </uib-tab>
+            <uib-tab index="3" heading="Watching">
+                <ul>
+                    <li ng-repeat="wa in pr.watching">
+                        {{ wa }}
+                    </li>
+                </ul>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+            </uib-tab>
+
+        </uib-tabset>
+
+        <hr />
+
+
+
+
+
+
+
+
     </div>
+
+
+
+
+
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>

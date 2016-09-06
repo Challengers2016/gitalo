@@ -2,13 +2,17 @@
 
 // Declare public level module which depends on views, and components
 angular.module('GITALO')
-    .controller('ReposCtrl',['$scope','getAllRepos','cfpLoadingBar','$timeout','ReposService', function($scope,getAllRepos,cfpLoadingBar
-    ,$timeout,ReposService){
+    .controller('ReposCtrl',['$scope','getAllRepos','cfpLoadingBar','$timeout','ReposService','$window','$document', function($scope,getAllRepos,cfpLoadingBar
+    ,$timeout,ReposService,$window,$document){
 
 var repos = this ;
 
         $scope.page =1;
         repos.numberPagination=0;
+
+
+        var top = 0;
+        var duration = 2000; //milliseconds
 
 
 
@@ -72,8 +76,13 @@ var repos = this ;
 
         //to increment the page
         repos.click = function(){
-            repos.page++;
+            console.log('we will increment')
+            $scope.page++;
             repos.loading = true;
+            $window.scrollTo(0, 0);
+            //Scroll to the exact position
+
+
 
             //usSpinnerService.spin('spinner-1');
         }
@@ -82,9 +91,10 @@ var repos = this ;
 
         repos.decrement = function(){
             repos.loading = true;
-            repos.page--;
+            $scope.page--;
             console.log('clicked ')
             //usSpinnerService.spin('spinner-1');
+            $window.scrollTo(0, 0);
 
         }
 

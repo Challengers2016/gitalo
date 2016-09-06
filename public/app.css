@@ -80,12 +80,6 @@ html {
   border-top: 3px solid #e7e7e7;
 }
 
-.banner {
-  padding: 100px 0;
-  color: #f8f8f8;
-  background: url(../img/banner-bg.jpg) no-repeat center center;
-  background-size: cover;
-}
 
 .banner h2 {
   margin: 0;
@@ -172,4 +166,59 @@ body{
 
 a {
   color: #000088;
+}
+body{
+
+}
+.input[type=text] {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 100%;
+}
+.dev{
+  border: 2px solid #3F51B5;border-radius: 25px;color: #001714;background-color: #FFFFFF !important;
+}
+
+.org{
+  border: 1px solid #3F51B5;border-radius: 10px;color: #001714;background-color: #FFFFFF !important;
+
+}
+.email{
+  color :#3F51B5 !important;
+}
+.location {
+
+  color :#2196F3 !important;
+}
+
+.blog{
+  color :#1A237E!important;
+}
+.notFound{
+  color :#B71C1C !important;
+}
+
+.orgDetails{
+  color :#3F51B5 !important;
+  margin: 1px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+  color: #33a6cc;
+  border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+  border-color: #007299;
+  color: #007299;
+  box-shadow: none;
+}
+#btn{
+  background-color: #2196F3;
 }

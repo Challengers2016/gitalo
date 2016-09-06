@@ -18,53 +18,52 @@
 
 
 
-        <div class="col-xs-12 col-sm-4 col-md-4">
-
-
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img ng-src="{{ orgDetails.organisation.avatar_url}}" alt="" class="img-rounded img-responsive" />
-                    </div>
-
-
-                    <div class="col-sm-6 col-md-8">
-                        <h4 ng-if="orgDetails.organisation.login">
-                            {{ orgDetails.organisation.login }}
-                        </h4>
-
-                        <span>
-                            <i class="fa fa-gitlab" aria-hidden="true"></i>{{ orgDetails.organisation.followers  }} Followers
-                    </span>
-                        <br>
-
-                            <span>
-                            <i class="fa fa-gratipay" aria-hidden="true"></i>{{ orgDetails.organisation.following }} Following
-                       </span>
-<br>
-                            <span>
-                            <i class="fa fa-git-square" aria-hidden="true"></i>{{ orgDetails.organisation.public_gists }} Gists
-                   </span>
-<br>
-
-    <span>
-                            <i class="fa fa-code" aria-hidden="true"></i>{{ orgDetails.organisation.public_repos }} Repos
-                       </span>
-<br>
-                            <span>
-                            <i class="glyphicon glyphicon-gift"></i> Joined on {{ orgDetails.organisation.created_at | date:"MM/dd/yyyy" }}
-                         </span>
-
-                        <!-- -->
-                        <hr>
-                        <a ng-href="{{orgDetails.organisation.html_url}}">Github</a>
-                        <hr>
+        <div class="col-md-4">
 
 
 
 
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" ng-src="{{ orgDetails.organisation.avatar_url}}" alt="..." width="90px">
+                    </a>
+                </div><!---end of media left----->
+                <div class="media-body">
+                    <h4 class="media-heading"> {{ orgDetails.organisation.login }}</h4>
 
-                    </div>
+
+                      <p class="orgDetails">
+                            <i class="fa fa-gitlab" aria-hidden="true"></i> {{ orgDetails.organisation.followers  }} Followers
+                    </p>
+
+
+                            <p class="orgDetails">
+                            <i class="fa fa-gratipay" aria-hidden="true"></i> {{ orgDetails.organisation.following }} Following
+                       </p>
+
+                            <p class="orgDetails">
+                            <i class="fa fa-git-square" aria-hidden="true"></i> {{ orgDetails.organisation.public_gists }} Gists
+                   </p>
+
+
+    <p class="orgDetails">
+                            <i class="fa fa-code" aria-hidden="true"></i> {{ orgDetails.organisation.public_repos }} Repos
+                       </p>
+
+                            <p class="orgDetails">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> Joined on {{ orgDetails.organisation.created_at | date:"MM/dd/yyyy" }}
+                         </p>
+
+                    <!-- -->
+                    <button type="button" class="btn btn-info" id="btn" data-animation="am-fade-and-scale" data-placement="center" bs-modal="modal">Send Email
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </button>
+                    <br>
+
+                    <a ng-href="{{orgDetails.organisation.html_url}}">Github</a>
+                    <hr>
+
                 </div>
             </div>
         </div><!---end of col md4---------->
@@ -87,22 +86,37 @@
 
                             <h3><a ui-sref="reposDetails({'username': '{{User.login}}',repos: '{{r.name }}' })"> {{ r.name }}</a> </h3>
 
-                            <div class="pull-right">
 
-                                <span class="glyphicon glyphicon-star">{{ r.stargazers_count}}</span>
 
-                                <i class="fa fa-code-fork" aria-hidden="true"></i>{{ r.forks_count}}
-                            </div>
+                                <p>
+                                    <span style="font-weight: bold">
+                                    <i class="fa fa-star" aria-hidden="true"></i> Stars
+                                        </span>:
+                                       {{ r.stargazers_count}}
+                                </p>
+                            <br>
+
+                                <p>  <span style="font-weight: bold"><i class="fa fa-code-fork" aria-hidden="true"></i> Forks
+                                    </span>:
+                                   {{ r.forks_count}}
+                                    </p>
+
 
                             <br>
 
 
-                            <a ng-if="r.language"> language   :
-                                {{ r.language }} <i class="fa fa-language" aria-hidden="true"></i>
-                            </a>
+                            <p ng-if="r.language">
+                                <span style="font-weight: bold">
+                                   <i class="fa fa-code" aria-hidden="true"></i> language </span>   :
+                                {{ r.language }}
+                            </p>
                             <br>
 
-                            <a ng-if="r.description"> {{ r.description}}</a>
+                            <p ng-if="r.description">
+                                <span style="font-weight: bold">
+                              <i class="fa fa-history" aria-hidden="true"></i> Description  </span>:
+                                {{ r.description}}
+                            </p>
 
 
                         </div>
@@ -129,10 +143,22 @@
                 <tbody>
                 <tr ng-repeat="r in orgDetails.OrganisationMembers">
                     <td>
-                        <div class="panel panel-default" role="alert">
 
-                            <h3 class="text-center"><a ui-sref="developerDetails({'username': '{{r.name}}' })"> {{ r.login }}</a> </h3>
 
+                        <div class="media">
+                            <div class="media-left">
+                                <a ui-sref="developerDetails({'username': '{{r.name}}' })">
+                                    <img class="media-object" ng-src="{{r.avatar_url}}" alt="..." width="70px">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">
+                                    <a ui-sref="developerDetails({'username': '{{r.login}}' })">
+                                    {{ r.login }}
+                                        </a>
+                                </h4>
+
+                            </div>
                         </div>
                     </td>
 
