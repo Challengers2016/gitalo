@@ -1,0 +1,17 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /home/ahmed/.npm-packages/bin/firebase deploy
+[debug] Platform:     linux
+[debug] Node Version: v6.2.2
+[debug] Time:         Wed Sep 07 2016 14:53:06 GMT+0100 (CET)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/gitalo/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/firebase/gitalo/token?token=XXX 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'gitalo'...
+[info] 
+[info] i  deploying hosting
+[info] i  preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/firebase/gitalo/uploads/-KR3v6Si7uMSvcrEBb8T?token=XXX&fileCount=6122&message= 

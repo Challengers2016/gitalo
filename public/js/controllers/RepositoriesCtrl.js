@@ -2,8 +2,8 @@
 
 // Declare public level module which depends on views, and components
 angular.module('GITALO')
-    .controller('ReposCtrl',['$scope','getAllRepos','cfpLoadingBar','$timeout','ReposService','$window','$document', function($scope,getAllRepos,cfpLoadingBar
-    ,$timeout,ReposService,$window,$document){
+    .controller('ReposCtrl',['$scope','getAllRepos','cfpLoadingBar','$timeout','ReposService','$window','$document','Mandrill', function($scope,getAllRepos,cfpLoadingBar
+    ,$timeout,ReposService,$window,$document,Mandrill){
 
 var repos = this ;
 
@@ -139,6 +139,8 @@ repos.loading = true ;
 
         //call the function getRepos()
         getRepos()
+
+
 
 
     }])

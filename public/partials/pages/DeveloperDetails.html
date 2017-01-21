@@ -6,8 +6,8 @@
 
 <div class="container">
 
-    <div class="row text-center">
-        <loading></loading>
+    <div class="progress" ng-show="DD.loading">
+        <div class="se-pre-con"></div>
     </div>
 
 
@@ -122,10 +122,10 @@
                 <tbody>
                 <tr ng-repeat="r in DD.User.repos | orderBy:'stargazers_count' | filter:searchText ">
                     <td>
-                        <div class="alert  repo" role="alert" style=" border-style: solid;
+                        <div class="alert alert-success " role="alert" style=" border-style: solid;
     border-color: #F5F5F5;">
 
-                        <h3><a ui-sref="reposDetails({'username': '{{DD.User.login}}',repos: '{{r.name }}' })"> {{ r.name }}</a> </h3>
+                        <h3 class="media-heading" style="color: #3F51B5"><a ui-sref="reposDetails({'username': '{{DD.User.login}}',repos: '{{r.name }}' })" style="color: #3F51B5"> {{ r.name }}</a> </h3>
 
 
 

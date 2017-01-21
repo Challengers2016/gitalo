@@ -5,9 +5,9 @@
 
 <div class="container">
 
-    <div class="row text-center">
-        <loading></loading>
-    </div>
+    <div class="progress" ng-show="orgDetails.loading">
+        <div class="se-pre-con"></div>
+    </div>>
 
 
 
@@ -82,7 +82,7 @@
                 <tbody>
                 <tr ng-repeat="r in orgDetails.OrganisationRepos">
                     <td>
-                        <div class="alert repo" role="alert">
+                        <div class="alert alert-success " role="alert">
 
                             <h3><a ui-sref="reposDetails({'username': '{{User.login}}',repos: '{{r.name }}' })"> {{ r.name }}</a> </h3>
 

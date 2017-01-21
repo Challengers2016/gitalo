@@ -14,12 +14,22 @@ angular.module('GITALO')
         var i=0;
         var   promises = [];
 
+
+
+
+
+        $timeout(function () {
+            org.loading = false;
+        }, 2000);
+
+
         //the page
         $scope.page = 1 ;
 
         //to increment the page
         org.click = function(){
             $scope.page++;
+            org.loading=true;
 
 
         }
@@ -28,6 +38,7 @@ angular.module('GITALO')
 
         org.decrement = function(){
             $scope.page--;
+            org.loading=true;
             //i-=7;
         }
 

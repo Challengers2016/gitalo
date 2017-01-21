@@ -6,7 +6,9 @@ angular.module('GITALO')
         '$timeout','ReposService',function($scope,$q,DeveloperService,$stateParams,getRepositories,getUser,getOrganisations,$timeout, ReposService){
 
 
-        this.loading=true;
+
+var DD = this ;
+            DD.loading=true;
 
 
 
@@ -24,7 +26,7 @@ angular.module('GITALO')
         }
 
         $timeout(function () {
-            $scope.loading = false;
+            DD.loading=false;
         }, 500);
 
 
@@ -41,12 +43,12 @@ angular.module('GITALO')
         $scope.$watch('searchText', function(value){
             if(value) {
 
-                $scope.loading = true;
+
                 ReposService.SearchByWord(value)
                     .then(function (data) {
                         $scope.Repos =data.data.items;
                         $scope.numberofRepos=   data.data.total_count
-                        $scope.loading = false;
+
 
                     }).catch(function (err) {
                         console.log('err' + err)

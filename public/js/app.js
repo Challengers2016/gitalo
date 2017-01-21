@@ -4,11 +4,12 @@
 
 
 // Declare public level module which depends on views, and components
-angular.module('GITALO',['ui.router','ngAnimate','ui.bootstrap','firebase','ngLoadingSpinner','angular-loading-bar','duScroll'])
+angular.module('GITALO',['ui.router','ngAnimate','ui.bootstrap','firebase','ngLoadingSpinner','angular-loading-bar','duScroll',
+'angular-mandrill'])
 
 
 
-
+//2c406e418741e673a32b237e3a443adc-us14
 
 
 /*
@@ -183,7 +184,12 @@ CONFIG THE ROUTING
     }])
 
 
+
+    .config(function(MandrillProvider) {
+        MandrillProvider.setApiKey('2c406e418741e673a32b237e3a443adc-us14');
+    })
 .constant('FireBaseUrl','https://gitalo.firebaseio.com/')
+
 .run(['$rootScope','DeveloperService','Auth',function($rootScope,DeveloperService,Auth){
 
 

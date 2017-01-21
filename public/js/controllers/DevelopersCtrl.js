@@ -2,7 +2,8 @@
 
 // Declare public level module which depends on views, and components
 angular.module('GITALO')
-.controller('DevelopersCtrl',['$scope','$q','DeveloperService','$http',function($scope,$q,DeveloperService,$http){
+.controller('DevelopersCtrl',['$scope','$q','DeveloperService','$http','$timeout','$window',function($scope,$q,DeveloperService
+        ,$http, $timeout,$window){
 
 var dd = this ;
         dd.developers =[];
@@ -18,7 +19,11 @@ var dd = this ;
             ,dd.maxSize = 5;
 
 
+        dd.loading = true ;
 
+        $timeout(function () {
+            dd.loading = false;
+        }, 2000);
 
 
 
@@ -31,12 +36,16 @@ var dd = this ;
         //to increment the page
         dd.click = function(){
             $scope.page++;
+            dd.loading = true ;
+            $window.scrollTo(0, 0);
         }
 
         //to decrement the page number
 
         dd.decrement = function(){
             $scope.page--;
+            dd.loading = true ;
+            $window.scrollTo(0, 0);
         }
 
 
@@ -52,7 +61,7 @@ function getUsers() {
 
 
         var getUsers = DeveloperService.getUsers($scope.page);
-        dd.loading = true;
+        dd.loading = true ;
 
         getUsers.then(function (data) {
 
@@ -109,94 +118,6 @@ function getUsers() {
 
 
 
-
-
-
-
-
-
-
-//the follow function
-//?access_token=4d4f3e281c3688d91404d547269f5280546cb3d8
-
-        //"Headers" -> {"Authorization" -> "token " <> token}
-
-        /*{
-        headers : {
-            'Content-Type':'application/json',
-                'Authorization': 'token %s' % 'a4abd33e7823ae6ae21ec78adb47695dc92d0255',
-        }
-    }*/
-
-        //740ae65ad80ef20ddfea249c0d284e63af11a10d
-// "Authorization :token 740ae65ad80ef20ddfea249c0d284e63af11a10d"
-       /* $http.put('https://api.github.com/user/following/JakeWharton',
-            {
-             headers : {
-             'Content-Type':'application/json',
-             'Authorization': 'token %s' % 'a4abd33e7823ae6ae21ec78adb47695dc92d0255',
-             }
-             }
-            )
-        .then(function(data){
-            console.log('data' + data)
-
-        }).catch(function(er){
-            console.log('err' + JSON.stringify(er))
-        })*/
-
-        dd.follow = function(){
-            /*
-             $.ajax({
-             type: "PUT",
-             url: "user/starred/:owner/:repo",
-             username: $("#github-username").val(),
-             password: $("#github-password").val(),
-             success: function(data) {
-             $("#github-overlay").css("display", "none");
-             $("#github-star").attr("src", "http://placehold.it/50/e8117f/ffffff");
-             }
-             });
-             return false;
-             */
-
-            /*
-             $.ajax({
-             url: 'https://api.github.com/repos/some_name/some_app/issues/23?access_token=some_number',
-             type: 'PATCH',
-             data: '{"state": "closed" }',
-             contentType: "application/json; charset=utf-8",
-             success: function(result) {
-             alert(JSON.stringify(result));
-             }
-             */
-            //04d0945cf8fdca9ef2935cd4ea2b19097b5ad3f7
-
-         $http({
-                method: "POST",
-                url: '/JakeWharton/following/Rebaiahmed',
-             contentType: "application/json",
-             dataType: "json",
-             data: JSON.stringify({
-                 "content": "aGVsbG8=",
-                 "encoding": "utf-8"
-             }), headers: {
-                 Authorization: 'token 04d0945cf8fdca9ef2935cd4ea2b19097b5ad3f7'
-             }
-            }).success(function(data){
-             console.Log('data' + data)
-         }).catch(function(err){
-             console.log('err' + JSON.stringify(err))
-         })
-        }
-
-
-
-
-
-        $scope.makeUrl = function() {
-            return "https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true&size=large";
-        }
 
 
 
